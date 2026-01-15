@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="glass-card">
+    <header>
+      <h1>CUSTOS <span>AI</span></h1>
+      <p id="statusMode">Guardian Active</p>
+    </header>
+
+    <!-- Tab Statistics -->
+    <div class="stats-panel">
+      <div class="stat-item">
+        <span class="stat-value" id="totalTabs">-</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="groupedTabs">-</span>
+        <span class="stat-label">Grouped</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="ungroupedTabs">-</span>
+        <span class="stat-label">Loose</span>
+      </div>
+    </div>
+
+    <!-- Auto-Grouping Toggle -->
+    <div class="control-group">
+      <div class="label-row">
+        <span>Auto-Grouping</span>
+        <label class="switch">
+          <input type="checkbox" id="autoToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- URL Change Ejection Toggle -->
+    <div class="control-group">
+      <div class="label-row">
+        <span>Eject on URL Change</span>
+        <label class="switch">
+          <input type="checkbox" id="ejectToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="feature-desc">Ungroup tabs when they navigate to different pages</p>
+    </div>
+
+    <!-- Grouping Mode -->
+    <div class="control-group">
+      <div class="label-row">
+        <span>Grouping Mode</span>
+        <select id="groupingMode" class="mode-select">
+          <option value="semantic">🧠 Semantic (AI)</option>
+          <option value="domain">🌐 Domain</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Sweep Interval Slider -->
+    <div class="control-group">
+      <div class="label-row">
+        <span>Auto-Sweep Interval</span>
+        <span id="intervalValue" class="interval-display">3 min</span>
+      </div>
+      <input type="range" id="intervalSlider" min="0" max="4" value="2" step="1" class="slider-control">
+      <div class="slider-labels">
+        <span>Off</span>
+        <span>1m</span>
+        <span>3m</span>
+        <span>5m</span>
+        <span>10m</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-stack">
+      <button id="groupNowBtn" class="btn-primary">
+        <span class="btn-icon">⚡</span> Manual Sweep
+      </button>
+      <div class="button-row">
+        <button id="collapseBtn" class="btn-secondary">
+          <span class="btn-icon">📁</span> Collapse All
+        </button>
+        <button id="undoBtn" class="btn-secondary">
+          <span class="btn-icon">↶</span> Undo
+        </button>
+      </div>
+    </div>
+
+    <!-- Duplicate Detection -->
+    <div class="duplicate-section">
+      <h3>
+        <span>🔍 Duplicates</span>
+        <span id="duplicateCount" class="badge">0</span>
+      </h3>
+      <button id="findDuplicatesBtn" class="btn-tertiary">Scan for Duplicates</button>
+      <button id="closeDuplicatesBtn" class="btn-danger" style="display:none;">Close All Duplicates</button>
+      <div id="duplicateList" class="duplicate-list"></div>
+    </div>
+
+    <!-- Blacklist -->
+    <div class="blacklist-section">
+      <h3>🚫 Ignore List</h3>
+      <div class="input-row">
+        <input type="text" id="blacklistInput" placeholder="e.g. gmail.com">
+        <button id="addBlacklistBtn">+</button>
+      </div>
+      <ul id="blacklistTags"></ul>
+    </div>
+
+    <!-- History -->
+    <div class="history-section">
+      <h3>📋 Recent Actions</h3>
+      <ul id="historyList"></ul>
+    </div>
+
+    <footer id="feedback">Ready to organize your chaos.</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
