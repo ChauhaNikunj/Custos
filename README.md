@@ -37,7 +37,7 @@ Core structure is set up, logic and features are actively being developed.
 ## How to Load the Extension
 1. Clone or download this repository  
 2. Open your browser and go to:
-   - Chrome / Brave: `chrome://extensions`
+   - Chrome (or any chromium browser): `chrome://extensions`
 3. Enable **Developer Mode**
 4. Click **Load unpacked**
 5. Select the `custos` folder
